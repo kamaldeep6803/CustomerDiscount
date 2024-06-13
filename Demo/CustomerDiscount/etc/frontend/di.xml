@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config>
+   <type name="Magento\Catalog\Model\Product">
+       <plugin name="cache_price" type="Demo\CustomerDiscount\Plugin\Product" sortOrder="1" />
+   </type>
+</config>

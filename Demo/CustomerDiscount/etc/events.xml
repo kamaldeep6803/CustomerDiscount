@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <event name="checkout_cart_product_add_after">
+        <observer name="change_price_add_to_cart" instance="Demo\CustomerDiscount\Observer\CustomPrice" />
+    </event>
+    <event name="customer_data_object_login">
+        <observer name="customer_reward_point_update" instance="Demo\CustomerDiscount\Observer\CustomerLoginObserver" />
+    </event>
+</config>
