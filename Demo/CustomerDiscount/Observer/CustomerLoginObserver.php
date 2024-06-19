@@ -10,20 +10,20 @@ use Magento\Framework\Stdlib\CookieManagerInterface;
 
 class CustomerLoginObserver implements ObserverInterface
 {
-     public function __construct(
-         CookieMetadataFactory $cookieMetadataFactory,
-         CookieManagerInterface $cookieManager
-
-      ) {
-         $this->cookieMetadataFactory = $cookieMetadataFactory;
-         $this->cookieManager = $cookieManager;
-      }
+    public function __construct(
+        CookieMetadataFactory $cookieMetadataFactory,
+        CookieManagerInterface $cookieManager
+    ) {
+        $this->cookieMetadataFactory = $cookieMetadataFactory;
+        $this->cookieManager = $cookieManager;
+    }
+    
     public function execute(Observer $observer)
     {
         /** @var CustomerInterface $customer */
         $customer = $observer->getEvent()->getCustomer();
-        $discountType = $customer->getCustomAttribute('discount_type')?->getValue();
-        $customerDiscount = $customer->getCustomAttribute('customer_discount')?->getValue();
+        $discountType = $customer->getCustomAttribute('discount_type')->getValue();
+        $customerDiscount = $customer->getCustomAttribute('customer_discount')->getValue();
         $this->setDiscountTypeCookie($discountType);
         $this->setCustomerDiscountCookie($customerDiscount);
     }
